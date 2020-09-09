@@ -81,6 +81,8 @@ $urlInput = elgg_view('input/text', array(
         'required' => false,
 ));
 
+$notificationLabel = elgg_echo('lessons:video:notification_warning');
+
 
 $accessLabel = elgg_echo('access');
 $accessInput = elgg_view(
@@ -96,6 +98,8 @@ $accessInput = elgg_view(
 
 echo <<<___HTML
 
+   
+   
 <div>
 	<label for="title">$titleLabel</label>
 	$titleInput
@@ -127,7 +131,10 @@ echo <<<___HTML
 	<label for="source">$sourceLabel</label>
 	$sourceInput
 </div>
-
+<div class="alert info" id="url_notification" hidden>
+  
+  <strong>$notificationLabel</strong>
+</div>
 <div id="test" hidden>
 $urlInput
 </div>

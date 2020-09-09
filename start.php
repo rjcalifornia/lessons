@@ -13,6 +13,8 @@ function lessons_init() {
 	elgg_register_library('elgg:lessons', __DIR__ . '/lib/lessons.php');
 
 	elgg_register_page_handler('lessons', 'lessons_page_handler');
+        
+        elgg_extend_view('elgg.css', 'lessons/css');
 
 	elgg_register_plugin_hook_handler('entity:url', 'object', 'lessons_set_topic_url');
 
