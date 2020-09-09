@@ -95,6 +95,15 @@ $accessInput = elgg_view(
 		'label' => elgg_echo('access'),
 ));
 
+$save_button = elgg_view('input/submit', array(
+	'value' => elgg_echo('save'),
+        'id' => 'save',
+        //'hidden' => 'true',
+	'name' => 'save',
+));
+
+$action_buttons = $save_button . $delete_link;
+
 
 echo <<<___HTML
 
