@@ -64,13 +64,22 @@ $durationInput = elgg_view('input/text', array(
 $sourceLabel = elgg_echo('lessons:video_source');
 $sourceInput = elgg_view('input/select', array(
     'name' => 'lessons_video_source',
+    'id' => 'video_source',
     'options_values' => array(
-                
+                '0' => 'None',
 		'1' => 'YouTube',
                 '2' => 'Vimeo',
         )
 )
         );
+
+
+$urlInput = elgg_view('input/text', array(
+	'name' => 'video_url',
+	'id' => 'lessons_video_url',
+	'value' => $vars['video_url'],
+        'required' => false,
+));
 
 
 $accessLabel = elgg_echo('access');
@@ -118,11 +127,16 @@ echo <<<___HTML
 	<label for="source">$sourceLabel</label>
 	$sourceInput
 </div>
+
+<div id="test" hidden>
+$urlInput
+</div>
         
 <div>
-	<label for="access">$accssLabel</label>
+	<label for="access">$accessLabel</label>
 	$accessInput
 </div>
+
         
 ___HTML;
 

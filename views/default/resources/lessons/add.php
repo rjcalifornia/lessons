@@ -3,7 +3,7 @@
 elgg_gatekeeper();
 
 $guid = elgg_extract('guid', $vars);
-
+elgg_require_js("lessons/video_validation");
 elgg_entity_gatekeeper($guid);
 elgg_group_gatekeeper(true, $guid);
 
