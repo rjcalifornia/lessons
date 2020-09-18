@@ -6,12 +6,13 @@
  */
 
 $lesson = get_entity($vars['guid']);
-$vars['entity'] = $lesson;
+//$vars['entity'] = $lesson;
+echo $lesson;
 $access_id = elgg_extract('access_id', $vars, ACCESS_DEFAULT);
 $guid = $lesson->guid;
 $action_buttons = '';
 $delete_link = '';
-
+$container_guid = elgg_extract('container_guid', $vars);
 
 if ($vars['guid']) {
 	// add a delete button if editing
@@ -45,10 +46,10 @@ $contentInput = elgg_view('input/longtext', array(
 $imageLabel = elgg_echo('lessons:featured_image');
 $imageInput = elgg_view('input/file', array(
 	'id' => 'lessons_image',
-	'name' => 'featured_image',
+	'name' => 'lessons_image',
         'label' => 'Select an image to upload',
         'help' => 'Only jpeg, gif and png images are supported',
-        'required' => false,
+        'required' => true,
 ));
 
 
@@ -65,11 +66,24 @@ $sourceLabel = elgg_echo('lessons:video_source');
 $sourceInput = elgg_view('input/select', array(
     'name' => 'lessons_video_source',
     'id' => 'video_source',
+    'required' => false,
     'options_values' => array(
                 '0' => 'None',
 		'1' => 'YouTube',
                 '2' => 'Vimeo',
         )
+)
+        );
+
+$statusLabel = elgg_echo('access');
+$statusInput = elgg_view('input/select', array(
+    'name' => 'status',
+    'id' => 'lessons_status',
+    'value' => $vars['status'],
+    'options_values' => array(
+            'open' => elgg_echo('status:open'),
+            'closed' => elgg_echo('status:closed'),
+		),
 )
         );
 
@@ -94,6 +108,20 @@ $accessInput = elgg_view(
 		'entity_subtype' => 'lessons',
 		'label' => elgg_echo('access'),
 ));
+
+$containerInput = elgg_view(
+        'input/hidden',array(
+		'name' => 'container_guid',
+		'value' => $container_guid,)
+	
+        );
+$lesson_guid = elgg_view(
+        'input/hidden',array(
+		'name' => 'lesson_guid',
+		'value' => $lesson_guid,)
+	
+        );
+
 
 $save_button = elgg_view('input/submit', array(
 	'value' => elgg_echo('save'),
@@ -149,10 +177,14 @@ $urlInput
 </div>
         
 <div>
+	<label for="access">$statusLabel</label>
+	$statusInput
+</div>
+<div>
 	<label for="access">$accessLabel</label>
 	$accessInput
 </div>
-
+$containerInput
         
 ___HTML;
 

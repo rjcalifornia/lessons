@@ -32,7 +32,7 @@ $reply_text = '';
 
 $num_replies = elgg_get_entities(array(
 	'type' => 'object',
-	'subtype' => 'discussion_reply',
+	'subtype' => 'lessons_reply',
 	'container_guid' => $topic->getGUID(),
 	'count' => true,
 	'distinct' => false,
@@ -41,7 +41,7 @@ $num_replies = elgg_get_entities(array(
 if ($num_replies != 0) {
 	$last_reply = elgg_get_entities(array(
 		'type' => 'object',
-		'subtype' => 'discussion_reply',
+		'subtype' => 'lessons_reply',
 		'container_guid' => $topic->getGUID(),
 		'limit' => 1,
 		'distinct' => false,
@@ -73,7 +73,7 @@ if (!elgg_in_context('widgets')) {
 	// only show entity menu outside of widgets
 	$metadata = elgg_view_menu('entity', array(
 		'entity' => $vars['entity'],
-		'handler' => 'discussion',
+		'handler' => 'lessons',
 		'sort_by' => 'priority',
 		'class' => 'elgg-menu-hz',
 	));

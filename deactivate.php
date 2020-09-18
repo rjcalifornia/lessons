@@ -3,4 +3,4 @@
  * Deregister the ElggDiscussionReply class
  */
 
-update_subtype('object', 'discussion_reply');
+update_subtype('object', 'lessons_reply');

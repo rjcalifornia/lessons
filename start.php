@@ -651,22 +651,22 @@ function lessons_prepare_form_vars($lesson = NULL) {
 		'topic' => $lesson,
 	);
 
-	if ($topic) {
+	if ($lesson) {
 		foreach (array_keys($values) as $field) {
-			if (isset($topic->$field)) {
+			if (isset($lesson->$field)) {
 				$values[$field] = $lesson->$field;
 			}
 		}
 	}
 
-	if (elgg_is_sticky_form('lesson')) {
-		$sticky_values = elgg_get_sticky_values('lesson');
+	if (elgg_is_sticky_form('lessons')) {
+		$sticky_values = elgg_get_sticky_values('lessons');
 		foreach ($sticky_values as $key => $value) {
 			$values[$key] = $value;
 		}
 	}
 
-	elgg_clear_sticky_form('lesson');
+	elgg_clear_sticky_form('lessons');
 
 	return $values;
 }

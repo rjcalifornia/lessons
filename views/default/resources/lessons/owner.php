@@ -10,24 +10,24 @@ if ($target instanceof ElggGroup) {
 	// "discussion/owner/<guid>". Now that any entity can be used as a
 	// container, we use the standard "<content type>/group/<guid>" URL
 	// also with discussions.
-	forward("discussion/group/$guid", '301');
+	forward("lessons/group/$guid", '301');
 }
 
 elgg_set_page_owner_guid($guid);
 
-elgg_push_breadcrumb(elgg_echo('item:object:discussion'));
+elgg_push_breadcrumb(elgg_echo('item:object:lessons'));
 
-elgg_register_title_button('discussion', 'add', 'object', 'discussion');
+elgg_register_title_button('lessons', 'add', 'object', 'lessons');
 
-$title = elgg_echo('item:object:discussion');
+$title = elgg_echo('item:object:lessons');
 
 $options = array(
 	'type' => 'object',
-	'subtype' => 'discussion',
+	'subtype' => 'lessons',
 	'limit' => max(20, elgg_get_config('default_limit')),
 	'order_by' => 'e.last_action desc',
 	'full_view' => false,
-	'no_results' => elgg_echo('discussion:none'),
+	'no_results' => elgg_echo('lessons:none'),
 	'preload_owners' => true,
 );
 
@@ -44,7 +44,7 @@ $content = elgg_list_entities($options);
 $params = array(
 	'content' => $content,
 	'title' => $title,
-	'sidebar' => elgg_view('discussion/sidebar'),
+	'sidebar' => elgg_view('lessons/sidebar'),
 	'filter' => '',
 );
 

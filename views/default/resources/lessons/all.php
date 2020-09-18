@@ -1,7 +1,7 @@
 <?php
 
 elgg_pop_breadcrumb();
-elgg_push_breadcrumb(elgg_echo('discussion'));
+elgg_push_breadcrumb(elgg_echo('lessons'));
 
 $content = elgg_view('lessons/listing/all');
 

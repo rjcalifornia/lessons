@@ -12,6 +12,6 @@ class ElggDiscussionReply extends ElggComment {
 	protected function initializeAttributes() {
 		parent::initializeAttributes();
 
-		$this->attributes['subtype'] = "discussion_reply";
+		$this->attributes['subtype'] = "lessons_reply";
 	}
 }
