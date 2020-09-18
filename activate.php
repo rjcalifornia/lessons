@@ -14,5 +14,10 @@ if (get_subtype_id('object', 'lessons_featured')) {
 } else {
 	add_subtype('object', 'lessons_featured', 'LessonsFeatured');
 }
+if (get_subtype_id('object', 'reading_material')) {
+	update_subtype('object', 'reading_material', 'ReadingMaterial');
+} else {
+	add_subtype('object', 'reading_material', 'ReadingMaterial');
+}
 
 

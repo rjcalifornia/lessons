@@ -75,6 +75,16 @@ $sourceInput = elgg_view('input/select', array(
 )
         );
 
+
+$readingMaterialLabel = elgg_echo('lessons:reading_material');
+$readingMaterialInput = elgg_view('input/file', array(
+	'id' => 'lessons_reading_material',
+	'name' => 'lessons_reading_material',
+        'label' => 'Select a document',
+        //'help' => 'Only jpeg, gif and png images are supported',
+        'required' => false,
+));
+
 $statusLabel = elgg_echo('access');
 $statusInput = elgg_view('input/select', array(
     'name' => 'status',
@@ -168,12 +178,19 @@ echo <<<___HTML
 	<label for="source">$sourceLabel</label>
 	$sourceInput
 </div>
+
 <div class="alert info" id="url_notification" hidden>
   
   <strong>$notificationLabel</strong>
 </div>
 <div id="test" hidden>
 $urlInput
+</div>
+
+
+<div>
+	<label for="source">$readingMaterialLabel</label>
+	$readingMaterialInput
 </div>
         
 <div>

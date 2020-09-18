@@ -71,6 +71,17 @@ if (!$uploaded_file->isValid()) {
 }
 
 
+$readingMaterial = elgg_get_uploaded_files('lessons_reading_material');
+if ($readingMaterial) {
+$uploaded_material = array_shift($readingMaterial);
+if (!$uploaded_material->isValid()) {
+        $error = elgg_get_friendly_upload_error($uploaded_material->getError());
+        register_error($error);
+        forward(REFERER);
+}
+}
+
+
 
 
 $topic->status = $status;
@@ -101,6 +112,22 @@ $file->access_id = 2;
 if ($file->acceptUploadedFile($uploaded_file)) {
         //$guid = $file->save(); 
         $file->save();
+        
+          
+}
+        }
+        
+if($uploaded_material)  
+{
+$fileAttachment = new ReadingMaterial();
+$fileAttachment->title = $fileAttachment->getFilename();
+
+$fileAttachment->container_guid = $topic->getGUID();
+$fileAttachment->access_id = 2;
+
+
+if ($fileAttachment->acceptUploadedFile($uploaded_material)) {
+        $fileAttachment->save();
         
           
 }
