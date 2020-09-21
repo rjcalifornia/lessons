@@ -7,17 +7,34 @@
 $lesson = $vars['entity'];
 
 $group_guid = $lesson->container_guid;
-
+$student = elgg_get_logged_in_user_entity();
 $group = get_entity($group_guid);
-
-
+//echo $lesson->guid;
+$completeLessonUrl = "action/lessons/complete?lesson_guid={$lesson->guid}";
+	$completeLink = elgg_view('output/url', array(
+		'href' => $completeLessonUrl,
+		'text' => elgg_echo('lesson:mark_complete'),
+            'is_action' => true,
+		'class' => 'elgg-button elgg-button-complete-lesson float-alt-lesson',
+		'confirm' => true,
+	));
 
 $featured = elgg_get_entities(array(
 	'type' => 'object',
-	'subtype' => 'lessons_featured',
-        //'category' => 'featured',
-        'container_guid' => $lesson->guid,
-	//'full_view' => false,
+	'subtype' => 'lessons_featured',  
+        
+        'container_guid' => $lesson->guid,	
+        'limit' => 1,
+	'no_results' => elgg_echo("file:none"),
+	'preload_owners' => true,
+	'preload_containers' => true,
+	'distinct' => false,
+));
+$testing = elgg_get_entities(array(
+	'type' => 'object',
+	'subtype' => 'lessons_completed', 
+        'owner_guid' => $student->getGUID(),
+        'container_guid' => $lesson->guid,	
         'limit' => 1,
 	'no_results' => elgg_echo("file:none"),
 	'preload_owners' => true,
@@ -25,21 +42,19 @@ $featured = elgg_get_entities(array(
 	'distinct' => false,
 ));
 
-
+//var_dump($testing);
 
 $readingMaterial = elgg_get_entities(array(
 	'type' => 'object',
-	'subtype' => 'reading_material',
-        
-        'container_guid' => $lesson->guid,
-	
+	'subtype' => 'reading_material',        
+        'container_guid' => $lesson->guid,	
         'limit' => 1,
 	'no_results' => elgg_echo("file:none"),
 	'preload_owners' => true,
 	'preload_containers' => true,
 	'distinct' => false,
 ));
-//var_dump($readingMaterial);
+
 ?>
 
 
@@ -162,7 +177,7 @@ $readingMaterial = elgg_get_entities(array(
       if($readingMaterial != null)
       {
       ?>
-      
+      <div class="reading_material">
        <p>         
 <h3 class="lesson-reading-material"> 
 <span class="fa fa-book"></span>
@@ -173,7 +188,7 @@ $readingMaterial = elgg_get_entities(array(
 </h3>
        </p>
       
-      <div class="reading_material">
+      
       <?php 
       
       
@@ -206,4 +221,27 @@ $readingMaterial = elgg_get_entities(array(
       }
       
       ?>
+      
       </div>
+
+ <div class="lesson-student-options">
+       <?php
+       if(!$testing)
+       {
+           echo $completeLink;
+       }
+       else{
+
+           echo <<<___HTML
+   
+   <div class="elgg-button elgg-button-completed float-alt-lesson" 
+          >LESSON COMPLETED</div>
+   
+___HTML;
+           
+       }
+       ?>
+       
+       
+      </div>
+

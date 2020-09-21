@@ -16,6 +16,11 @@ return array(
 	'discussion:reply:title' => 'Reply by %s',
 	'discussion:new' => "Add discussion post",
 	'discussion:updated' => "Last reply by %s %s",
+        
+        'lesson:mark_complete' => 'Mark lesson as completed',
+        'lesson:reading_material:resources' => 'Attachments',
+        'lesson:video:resources' => 'Video',
+        'lesson:estimated_duration' => 'Lesson duration',
 
 	'discussion:topic:created' => 'The discussion topic was created.',
 	'discussion:topic:updated' => 'The discussion topic was updated.',

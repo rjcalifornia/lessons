@@ -11,6 +11,9 @@ if ($vars['entity']->lessons_enable == 'no') {
 
 $group = $vars['entity'];
 
+$page_owner = $group->owner_guid;
+
+
 $all_link = elgg_view('output/url', array(
 	'href' => "lessons/owner/$group->guid",
 	'text' => elgg_echo('link:view:all'),
@@ -29,12 +32,16 @@ $options = array(
 );
 $content = elgg_list_entities($options);
 elgg_pop_context();
-
+if($page_owner == elgg_get_logged_in_user_entity()->guid)
+{
 $new_link = elgg_view('output/url', array(
 	'href' => "lessons/add/" . $group->getGUID(),
 	'text' => elgg_echo('lessons:add:lessons'),
 	'is_trusted' => true,
 ));
+}
+
+
 
 echo elgg_view('groups/profile/module', array(
 	'title' => elgg_echo('lessons:group'),

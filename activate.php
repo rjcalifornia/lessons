@@ -9,6 +9,12 @@ if (get_subtype_id('object', 'lessons_reply')) {
 	add_subtype('object', 'lessons_reply', 'ElggLessonsReply');
 }
 
+if (get_subtype_id('object', 'lessons_completed')) {
+	update_subtype('object', 'lessons_completed', 'ElggLessonsCompleted');
+} else {
+	add_subtype('object', 'lessons_completed', 'ElggLessonsCompleted');
+}
+
 if (get_subtype_id('object', 'lessons_featured')) {
 	update_subtype('object', 'lessons_featured', 'LessonsFeatured');
 } else {

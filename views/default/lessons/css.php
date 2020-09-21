@@ -42,3 +42,33 @@ font-size: 18px !important;
 color: #f5f6f5 !important;
 border: 0px !important;
 }
+
+.float-alt-lesson {
+    float: right;
+}
+
+.elgg-button-complete-lesson {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background: #FF3300;
+    padding: 14px 26px !important;
+}
+
+.lesson-student-options
+{
+margin-top: 14px;
+margin-bottom: 12%;
+}
+
+.lesson-url{
+margin-top: 28px;
+}
+
+.reading_material{
+margin-top: 28px;
+}
+
+.elgg-button-completed {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background: #46a6ff;
+    padding: 14px 26px !important;
+}

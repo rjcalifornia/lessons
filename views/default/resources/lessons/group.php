@@ -10,12 +10,15 @@ elgg_entity_gatekeeper($guid, 'group');
 elgg_group_gatekeeper();
 
 $group = get_entity($guid);
+$page_owner = $group->owner_guid;
 
 elgg_push_breadcrumb($group->name, $group->getURL());
 elgg_push_breadcrumb(elgg_echo('item:object:lessons'));
 
+if($page_owner == elgg_get_logged_in_user_entity()->guid)
+{
 elgg_register_title_button('lessons', 'add', 'object', 'lessons');
-
+}
 $title = elgg_echo('item:object:lessons');
 
 $options = array(
