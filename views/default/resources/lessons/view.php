@@ -8,6 +8,7 @@ elgg_entity_gatekeeper($guid, 'object', 'lessons');
 
 $topic = get_entity($guid);
 
+
 elgg_extend_view('page/elements/head', 'lessons/scripts');
 
 $container = $topic->getContainerEntity();

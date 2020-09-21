@@ -33,3 +33,12 @@
 .closebtn:hover {
   color: black;
 }
+
+.extras-reading{
+padding: 12px 24px !important;
+background: #a066ff !important;
+text-shadow: none !important;
+font-size: 18px !important;
+color: #f5f6f5 !important;
+border: 0px !important;
+}

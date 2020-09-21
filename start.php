@@ -33,6 +33,7 @@ function lessons_init() {
 
 	$action_base = __DIR__ . '/actions/lessons';
 	elgg_register_action('lessons/save', "$action_base/save.php");
+	elgg_register_action('lessons/edit', "$action_base/edit.php");
 	elgg_register_action('lessons/delete', "$action_base/delete.php");
 	elgg_register_action('lessons/reply/save', "$action_base/reply/save.php");
 	elgg_register_action('lessons/reply/delete', "$action_base/reply/delete.php");
@@ -643,6 +644,9 @@ function lessons_prepare_form_vars($lesson = NULL) {
 	$values = array(
 		'title' => '',
 		'description' => '',
+                'duration' => '',
+                'lessons_video_source' => '',
+                'video_url' => '',
 		'status' => '',
 		'access_id' => ACCESS_DEFAULT,
 		'tags' => '',

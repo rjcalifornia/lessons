@@ -191,8 +191,9 @@ $readingMaterial = elgg_get_entities(array(
               ?>
           
           
-          <a href="<?php echo $readingMaterialDownloadUrl; ?>" >
-              <span class="fa fa-file-zip-o"></span> 
+          
+          <a href="<?php echo $readingMaterialDownloadUrl; ?>" class="elgg-menu-content elgg-button elgg-button-action extras-reading">
+              <span class="fa fa-arrow-circle-down"></span> 
               <?php echo $lessonReadingMaterial->title; ?>
           </a>
           <?php

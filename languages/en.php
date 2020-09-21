@@ -1,10 +1,17 @@
 <?php
 
 return array(
-	'discussion' => 'Discussions',
-	'discussion:add' => 'Add discussion topic',
-	'discussion:latest' => 'Latest discussions',
-	'discussion:group' => 'Group discussions',
+	'lessons' => 'Lessons',
+	'lessons:add' => 'Add a new lesson',
+	'lessons:title' => 'Title',
+	'lessons:content' => 'Content',
+	'lessons:featured_image' => 'Upload a featured image',
+	'lessons:estimated_duration' => 'Duration of the lesson',
+	'lessons:video_source' => 'Video source',
+	'lessons:reading_material' => 'Upload an attachment (Reading material, instructions, etc.)',
+	'lessons:add:lessons' => 'Add a new lesson',
+	'lessons:latest' => 'Latest discussions',
+	'lessons:group' => 'Group lessons',
 	'discussion:none' => 'No discussions',
 	'discussion:reply:title' => 'Reply by %s',
 	'discussion:new' => "Add discussion post",
@@ -39,8 +46,8 @@ return array(
 	/**
 	 * River
 	 */
-	'river:create:object:discussion' => '%s added a new discussion topic %s',
-	'river:reply:object:discussion' => '%s replied on the discussion topic %s',
+	'river:create:object:lessons' => '%s added a new lesson %s',
+	'river:reply:object:lessons' => '%s replied on the lesson %s',
 	'river:reply:view' => 'view reply',
 
 	/**
@@ -68,10 +75,10 @@ View and reply to the discussion:
 %s
 ',
 
-	'item:object:discussion' => "Discussion topics",
+	'item:object:lessons' => "Lessons",
 	'item:object:discussion_reply' => "Discussion replies",
 
-	'groups:enableforum' => 'Enable group discussions',
+	'groups:enableforum' => 'Enable lessons feature',
 
 	'reply:this' => 'Reply to this',
 

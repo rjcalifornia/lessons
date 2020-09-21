@@ -3,6 +3,7 @@
 elgg_gatekeeper();
 
 $guid = elgg_extract('guid', $vars);
+elgg_require_js("lessons/video_validation");
 $topic = get_entity($guid);
 if (!elgg_instanceof($topic, 'object', 'lessons') || !$topic->canEdit()) {
 	register_error(elgg_echo('discussion:topic:notfound'));
@@ -17,7 +18,7 @@ elgg_push_breadcrumb($topic->title, $topic->getURL());
 elgg_push_breadcrumb($title);
 
 $body_vars = lessons_prepare_form_vars($topic);
-$content = elgg_view_form('lessons/save', array(), $body_vars);
+$content = elgg_view_form('lessons/edit', array(), $body_vars);
 
 $params = array(
 	'content' => $content,
