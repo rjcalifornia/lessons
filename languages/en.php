@@ -3,9 +3,11 @@
 return array(
 	'lessons' => 'Lessons',
 	'lessons:add' => 'Add a new lesson',
+	'lessons:add:lesson' => 'Add a new lesson',
 	'lessons:title' => 'Title',
 	'lessons:content' => 'Content',
 	'lessons:featured_image' => 'Upload a featured image',
+	'lessons:complete:success' => 'Lesson marked successfully as complete',
 	'lessons:estimated_duration' => 'Duration of the lesson',
 	'lessons:video_source' => 'Video source',
 	'lessons:reading_material' => 'Upload an attachment (Reading material, instructions, etc.)',
@@ -83,7 +85,7 @@ View and reply to the discussion:
 	'item:object:lessons' => "Lessons",
 	'item:object:discussion_reply' => "Discussion replies",
 
-	'groups:enableforum' => 'Enable lessons feature',
+	'lessons:enablelessons' => 'Enable lessons feature',
 
 	'reply:this' => 'Reply to this',
 

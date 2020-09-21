@@ -181,6 +181,7 @@ $readingMaterial = elgg_get_entities(array(
        <p>         
 <h3 class="lesson-reading-material"> 
 <span class="fa fa-book"></span>
+
     <?php
         echo elgg_echo('lesson:reading_material:resources');
     ?>
@@ -234,8 +235,9 @@ $readingMaterial = elgg_get_entities(array(
 
            echo <<<___HTML
    
-   <div class="elgg-button elgg-button-completed float-alt-lesson" 
-          >LESSON COMPLETED</div>
+   <div class="elgg-button elgg-button-completed float-alt-lesson">
+   <span class="fa fa-check-circle-o"></span> LESSON COMPLETED
+   </div>
    
 ___HTML;
            
